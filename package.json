@@ -7,8 +7,14 @@
   "scripts": {
     "build": "NODE_ENV=production npx webpack"
   },
-  "author": "",
+  "author": "Nikita Bagramov",
   "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "i18next": "^23.11.2",
+    "on-change": "^5.0.1",
+    "yup": "^1.4.0"
+  },
   "devDependencies": {
     "@babel/preset-env": "^7.24.3",
     "babel-loader": "^9.1.3",
@@ -24,8 +30,5 @@
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
-  },
-  "dependencies": {
-    "bootstrap": "^5.3.3"
   }
 }
