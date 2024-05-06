@@ -10,6 +10,7 @@
   "author": "Nikita Bagramov",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "i18next": "^23.11.2",
     "on-change": "^5.0.1",

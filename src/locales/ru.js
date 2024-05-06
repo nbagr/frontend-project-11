@@ -2,8 +2,10 @@ export default {
   translation: {
     feeds: 'Фиды',
     posts: 'Посты',
-    succes: 'RSS успешно загружен',
     view: 'Просмотр',
+    loading: {
+      success: 'RSS успешно загружен',
+    },
     errors: {
       exists: 'RSS уже существует',
       empty: 'Не должно быть пустым',
