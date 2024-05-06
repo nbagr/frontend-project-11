@@ -29,8 +29,7 @@ const getLoadingProcessErrorType = (e) => {
 const loadRss = (watchedState, url) => {
   watchedState.loadingProcess.status = 'loading';
   const urlWithProxy = addProxy(url);
-  console.log(url);
-  return axios.get(url)
+  return axios.get(urlWithProxy)
     .then((response) => {
       const data = parse(response.data.contents);
       const feed = {

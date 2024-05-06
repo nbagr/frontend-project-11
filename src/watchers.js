@@ -84,7 +84,7 @@ export default (initState, elements, i18next) => {
   };
 
   const handlePosts = (state) => {
-    const { posts, ui } = state;
+    const { posts } = state;
     const { postsBox } = elements;
 
     const fragmentStructure = document.createElement('div');
@@ -106,8 +106,7 @@ export default (initState, elements, i18next) => {
       element.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start', 'border-0', 'border-end-0');
       const link = document.createElement('a');
       link.setAttribute('href', post.link);
-      const className = ui.seenPosts.has(post.id) ? ['fw-normal', 'link-secondary'] : ['fw-bold'];
-      link.classList.add(...className);
+      link.classList.add('fw-bold');
       link.dataset.id = post.id;
       link.textContent = post.title;
       link.setAttribute('target', '_blank');
