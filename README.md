@@ -3,10 +3,27 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/cdca381b4f690c629a80/maintainability)](https://codeclimate.com/github/nbagr/frontend-project-11/maintainability)
 
-[Link to app](https://frontend-project-11-nbagramov.vercel.app/)
+# RSS Reader
 
-RSS — специализированный формат, предназначенный для описания лент новостей, анонсов статей и других материалов. Это наиболее простой способ для сайтов (обычно, блогов) дать возможность пользователям подписываться на изменения. Для этого используются специальные сервисы, называемые RSS-агрегаторами. Эти сервисы умеют опрашивать RSS-ленты сайтов на наличие новых постов и показывают их в удобном виде, отмечая прочитанное и так далее.
+[Link to demo](https://frontend-project-11-nbagramov.vercel.app/)
 
-Например, у Хекслета есть канал в Твиттере, куда попадают анонсы всех новых уроков. Твиттер сам «засасывает» всю информацию через RSS-ленту, которую мы ему предоставили. По такому же принципу Slack забирает RSS-ленту с новыми постами в нашем блоге и сообщает об этом в канале #general.
+## Overview
 
-Rss Reader — сервис для агрегации RSS-потоков, с помощью которых удобно читать разнообразные источники, например, блоги. Он позволяет добавлять неограниченное количество RSS-лент, сам их обновляет и добавляет новые записи в общий поток.
+RSS Reader is a service for aggregating RSS feeds. It allows you to add an unlimited number of RSS feeds, updates them and adds new entries to the general stream.
+
+## Used technologies
+JavaScript: [yup](https://github.com/jquense/yup), [axios](https://github.com/axios/axios), [onChange](https://github.com/Qard/onchange), [i18next](https://www.i18next.com/), promises (native)
+
+CI/CD: [vercel](https://vercel.com), [codeclimate](https://codeclimate.com/), [github actions](https://github.com/nbagr/frontend-project-11/actions)
+
+Bundler: [webpack](https://webpack.js.org/)
+
+Layout: [bootstrap 5](https://getbootstrap.com/)
+
+## Installation and Usage
+
+```bash
+git clone git@github.com:nbagr/frontend-project-11.git
+make install
+make develop
+```
