@@ -20,7 +20,7 @@ const addProxy = (url) => {
 
 const getLoadingProcessErrorType = (e) => {
   if (e.isParsingError) {
-    return 'noRss';
+    return 'noRSS';
   }
   if (e.isAxiosError) {
     return 'network';
