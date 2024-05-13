@@ -10,7 +10,7 @@ export default (initState, elements, i18next) => {
     } else {
       input.classList.add('is-invalid');
       feedback.classList.add('text-danger');
-      feedback.textContent = i18next.t(`errors.${error}`);
+      feedback.textContent = i18next.t([`errors.${error}`, 'errors.unknown']);
     }
   };
 
@@ -84,7 +84,7 @@ export default (initState, elements, i18next) => {
   };
 
   const handlePosts = (state) => {
-    const { posts } = state;
+    const { posts, ui } = state;
     const { postsBox } = elements;
 
     const fragmentStructure = document.createElement('div');
@@ -106,7 +106,8 @@ export default (initState, elements, i18next) => {
       element.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start', 'border-0', 'border-end-0');
       const link = document.createElement('a');
       link.setAttribute('href', post.link);
-      link.classList.add('fw-bold');
+      const className = ui.seenPosts.has(post.id) ? ['fw-normal', 'link-secondary'] : ['fw-bold'];
+      link.classList.add(...className);
       link.dataset.id = post.id;
       link.textContent = post.title;
       link.setAttribute('target', '_blank');
@@ -118,7 +119,7 @@ export default (initState, elements, i18next) => {
       button.dataset.id = post.id;
       button.dataset.bsToggle = 'modal';
       button.dataset.bsTarget = '#modal';
-      button.textContent = i18next.t('preview');
+      button.textContent = i18next.t('view');
       element.appendChild(button);
       return element;
     });
@@ -127,6 +128,17 @@ export default (initState, elements, i18next) => {
     fragmentStructure.appendChild(postsList);
     postsBox.innerHTML = '';
     postsBox.appendChild(fragmentStructure);
+  };
+
+  const handleModal = (state) => {
+    const post = state.posts.find(({ id }) => id === state.modal.postId);
+    const title = elements.modal.querySelector('.modal-title');
+    const body = elements.modal.querySelector('.modal-body');
+    const fullArticleBtn = elements.modal.querySelector('.full-article');
+
+    title.textContent = post.title;
+    body.textContent = post.description;
+    fullArticleBtn.href = post.link;
   };
 
   const watchedState = onChange(initState, (path) => {
@@ -141,6 +153,12 @@ export default (initState, elements, i18next) => {
         handleFeeds(initState);
         break;
       case 'posts':
+        handlePosts(initState);
+        break;
+      case 'modal.postId':
+        handleModal(initState);
+        break;
+      case 'ui.seenPosts':
         handlePosts(initState);
         break;
       default:
